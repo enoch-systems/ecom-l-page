@@ -1,10 +1,39 @@
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  quantity: number;
+}
+
 interface WhatsAppButtonProps {
-  productName: string;
+  cartItems: CartItem[];
   phoneNumber?: string;
 }
 
-export default function WhatsAppButton({ productName, phoneNumber = '1234567890' }: WhatsAppButtonProps) {
-  const message = encodeURIComponent(`Hi, I'm interested in ${productName}. Is it available?`);
+export default function WhatsAppButton({ cartItems, phoneNumber = '1234567890' }: WhatsAppButtonProps) {
+  const formatPrice = (price: number) => {
+    return `₦${price.toLocaleString()}`;
+  };
+
+  const generateOrderMessage = () => {
+    if (cartItems.length === 0) {
+      return encodeURIComponent(`Hi ZinnyStore 👋\n\nI'm interested in your products. Please let me know about availability and pricing.`);
+    }
+
+    let message = `Hi ZinnyStore 👋\n\n#NEW ORDER\n\nHere is my order:\n\n`;
+    
+    cartItems.forEach((item) => {
+      message += `• ${item.name}\n  Price: ${formatPrice(item.price)}\n  Qty: ${item.quantity}\n\n`;
+    });
+
+    const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    message += `──────────────────\nTotal: ${formatPrice(total)}\n\nI'm interested in these items. Please let me know about delivery options and availability. Thank you!`;
+
+    return encodeURIComponent(message);
+  };
+
+  const message = generateOrderMessage();
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (

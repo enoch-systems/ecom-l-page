@@ -13,20 +13,13 @@ export default function CheckoutPage() {
   const handleCheckout = () => {
     if (cart.length === 0) return;
 
-    let message = '*#NEW ORDER*\n\n';
+    let message = `Hi ZinnyStore 👋\n\n#NEW ORDER\n\nHere is my order:\n\n`;
     
-    cart.forEach((item, index) => {
-      message += `*Product:* ${item.name}\n`;
-      message += `*Price:* ₦${item.price.toLocaleString()}\n`;
-      message += `*Quantity:* ${item.quantity}\n`;
-      
-      if (index < cart.length - 1) {
-        message += '-------------------\n';
-      }
+    cart.forEach((item) => {
+      message += `• ${item.name}\n  Price: ₦${item.price.toLocaleString()}\n  Qty: ${item.quantity}\n\n`;
     });
-  
-    message += '\n';
-    message += `_Total:_ ₦${getCartTotal().toLocaleString()}\n`;
+
+    message += `──────────────────\nTotal: ₦${getCartTotal().toLocaleString()}\n\nI'm interested in these items. Please let me know about delivery options and availability. Thank you!`;
 
     const whatsappNumber = '2349162919586';
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
