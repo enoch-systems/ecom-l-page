@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "ZinnyStore - Premium Wigs & Hair Extensions",
   description: "Discover beautiful wigs, human hair, and premium hair extensions at ZinnyStore. Shop our collection of lace front wigs, full lace wigs, and more for the perfect look.",
   icons: {
-    icon: '/icon.avif',
+    icon: '/product-images/product1/product1_image1.avif',
   },
 };
 
