@@ -24,7 +24,7 @@ export default function WhatsAppButton({ cartItems, phoneNumber = '1234567890' }
     let message = `Hi ZinnyStore 👋\n\n#NEW ORDER\n\nHere is my order:\n\n`;
     
     cartItems.forEach((item) => {
-      message += `• ${item.name}\n  Price: ${formatPrice(item.price)}\n  Qty: ${item.quantity}\n\n`;
+      message += `* ${item.name}\n  Price: ${formatPrice(item.price)}\n  Qty: ${item.quantity}\n\n`;
     });
 
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);

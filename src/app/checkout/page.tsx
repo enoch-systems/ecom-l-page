@@ -16,7 +16,7 @@ export default function CheckoutPage() {
     let message = `Hi ZinnyStore 👋\n\n#NEW ORDER\n\nHere is my order:\n\n`;
     
     cart.forEach((item) => {
-      message += `• ${item.name}\n  Price: ₦${item.price.toLocaleString()}\n  Qty: ${item.quantity}\n\n`;
+      message += `* ${item.name}\n  Price: ₦${item.price.toLocaleString()}\n  Qty: ${item.quantity}\n\n`;
     });
 
     message += `──────────────────\nTotal: ₦${getCartTotal().toLocaleString()}\n\nI'm interested in these items. Please let me know about delivery options and availability. Thank you!`;
