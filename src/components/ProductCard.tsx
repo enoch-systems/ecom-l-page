@@ -215,7 +215,7 @@ export default function ProductCard({ product, isMenuOpen = false }: ProductCard
               Added
             </div>
           ) : (
-            'Add to Cart'
+            'Add to Whatsapp order'
           )}
         </button>
         <p className="text-xs sm:text-sm text-gray-600 font-medium text-center mt-3">You chat / call vendor before you buy</p>
