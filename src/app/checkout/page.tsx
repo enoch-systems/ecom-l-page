@@ -127,6 +127,12 @@ export default function CheckoutPage() {
 
             {/* Order Info Section */}
             <div className="lg:col-span-1 lg:sticky lg:top-24 space-y-6">
+              <button
+                onClick={clearCart}
+                className="w-full bg-red-50 border border-red-200 text-red-600 py-3 font-medium rounded-xl hover:bg-red-100 transition-colors cursor-pointer"
+              >
+                Clear All Items
+              </button>
               <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
                 <h2 className="text-lg font-semibold text-gray-900 mb-6">Order Info</h2>
                 <div className="space-y-4">
